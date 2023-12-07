@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+{% block title %}add movies{% endblock title %} 
+{%block body %}
+
+<div class="container">
+    <h2>Add Movies</h2>
+    <form method = 'POST' action="{%url 'addmovie'%}" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Movie</label>
+          <input type="text" name="name" class="form-control" />
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" name="des" style="height: 100px"  id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Description</label>
+          </div>
+        <div class="mb-3">
+          <label class="form-label">Year</label>
+          <input type="text" name="year" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Image</label>
+          <input class="form-control" type="file" name="image" id="formFile">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
+</div>
+
+{% endblock  %}

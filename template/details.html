@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+{%block title%}Movie Details{%endblock%}
+
+{%block body%}
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{movie.movie_image.url}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.movie_name}}</h5>
+          <p class="card-text">{{movie.movie_des}}</p>
+     
+          <p class="card-text"><small class="text-muted">{{movie.movie_year}}</small></p>
+          <a href="{%url 'update' movie.id%}" class="btn btn-info">Update</a>
+          <a href="{%url 'delete' movie.id%}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+</div>
+{%endblock%}

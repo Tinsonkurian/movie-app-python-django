@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+{% block title %}update movies{% endblock title %} 
+{%block body %}
+
+<div class="container">
+    <h2>Update Movies</h2>
+    <form method = 'POST' action="{%url 'updatemovie' movie.id %}" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Movie</label>
+          <input type="text" name="name" class="form-control" value="{{movie.movie_name}}"/>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Description</label>
+            <input type="text" name="des" class="form-control" value="{{movie.movie_des}}" />
+            
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Year</label>
+          <input type="text" name="year" class="form-control" value="{{movie.movie_year}}" />
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Image</label>
+          <input class="form-control" type="file" name="image" id="formFile" >
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+
+</div>
+
+{% endblock  %}
